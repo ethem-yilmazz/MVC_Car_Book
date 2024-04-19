@@ -25,4 +25,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UdemyCarBook.Dto\UdemyCarBook.Dto.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\TestimonialDtos\" />
+  </ItemGroup>
+
 </Project>
