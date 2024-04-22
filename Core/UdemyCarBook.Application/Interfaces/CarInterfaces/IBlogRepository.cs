@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UdemyCarBook.Domain.Entities;
 
-namespace UdemyCarBook.Application.Interfaces.BlogInterfaces
+namespace UdemyCarBook.Application.Interfaces.CarInterfaces
 {
     public interface IBlogRepository
     {
         public List<Blog> GetLast3BlogsWithAuthors();
+        public List<Blog> GetAllBlogsWithAuthor();
     }
 }

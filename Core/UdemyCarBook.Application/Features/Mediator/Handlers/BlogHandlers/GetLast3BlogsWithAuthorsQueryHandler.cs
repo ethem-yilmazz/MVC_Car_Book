@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UdemyCarBook.Application.Features.CQRS.Results.CarResults;
 using UdemyCarBook.Application.Features.Mediator.Queries.BlogQueries;
 using UdemyCarBook.Application.Features.Mediator.Results.BlogResults;
-using UdemyCarBook.Application.Interfaces.BlogInterfaces;
+using UdemyCarBook.Application.Interfaces.CarInterfaces;
 
 namespace UdemyCarBook.Application.Features.Mediator.Handlers.BlogHandlers
 {
