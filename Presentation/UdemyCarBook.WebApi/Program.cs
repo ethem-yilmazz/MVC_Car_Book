@@ -4,11 +4,16 @@ using UdemyCarBook.Application.Features.CQRS.Handlers.BrandHandlers;
 using UdemyCarBook.Application.Features.CQRS.Handlers.CarHandlers;
 using UdemyCarBook.Application.Features.CQRS.Handlers.CategoryHandlers;
 using UdemyCarBook.Application.Features.CQRS.Handlers.ContactHandlers;
+using UdemyCarBook.Application.Features.Mediator.Handlers.BlogHandlers;
 using UdemyCarBook.Application.Interfaces;
+using UdemyCarBook.Application.Interfaces.BlogInterfaces;
 using UdemyCarBook.Application.Interfaces.CarInterfaces;
+using UdemyCarBook.Application.Interfaces.CarPricingInterfaces;
 using UdemyCarBook.Application.Services;
 using UdemyCarBook.Persistance.Context;
 using UdemyCarBook.Persistance.Repositories;
+using UdemyCarBook.Persistance.Repositories.BlogRepositories;
+using UdemyCarBook.Persistance.Repositories.CarPricingRepositories;
 using UdemyCarBook.Persistance.Repositories.CarRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository),typeof(CarRepository));
+builder.Services.AddScoped(typeof(IBlogRepository),typeof(BlogRepository));
+builder.Services.AddScoped(typeof(ICarPricingRepository),typeof(CarPricingRepository));
 
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
@@ -43,6 +50,8 @@ builder.Services.AddScoped<CreateCarCommandHandler>();
 builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<RemoveCarCommandHandler>();
 builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
+builder.Services.AddScoped<GetLast5CarsWithBrandQueryHandler>();
+
 
 builder.Services.AddScoped<GetCategoryQueryHandler>();
 builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
@@ -56,6 +65,7 @@ builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<CreateContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
+
 
 builder.Services.AddApplicationService(builder.Configuration);
 
